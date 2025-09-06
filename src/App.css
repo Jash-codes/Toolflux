@@ -1,0 +1,169 @@
+:root {
+  --darkest-blue: #00072D;
+  --dark-blue: #051650;
+  --mid-blue: #0A2472;
+  --bright-blue: #123499;
+  --accent-blue: #1A43BF;
+}
+
+body {
+  background-color: var(--darkest-blue);
+  color: white;
+  margin: 0;
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.background-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.navbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  width: 60%;
+  max-width: 900px;
+  justify-content: space-between;
+  padding: 1rem 3.5rem;
+  background: rgba(10, 36, 114, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.nav-links a {
+  color: #a0aec0;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #fff;
+}
+
+.categories-dropdown-container {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 150%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(5, 22, 80, 0.8);
+  backdrop-filter: blur(15px);
+  border-radius: 12px;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 1.5rem;
+  width: 350px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.dropdown-menu a {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  text-align: left;
+}
+
+.dropdown-menu a:hover {
+  background-color: rgba(26, 67, 191, 0.5);
+}
+
+.content {
+  position: relative;
+  z-index: 1; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.title {
+  font-size: 6rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -3px;
+  color: white;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+  /* --- The old CSS animation has been removed from here --- */
+}
+
+/* This is a new style for the individual characters GSAP creates */
+.title .char {
+  display: inline-block; /* Important for transforms to work */
+}
+
+
+.quote {
+  font-size: 1.5rem;
+  color: #a0aec0;
+  margin: 1rem 0 2.5rem 0;
+  font-weight: 400;
+}
+
+.get-started-btn {
+  background-color: var(--accent-blue);
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(26, 67, 191, 0.4);
+}
+
+.get-started-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(26, 67, 191, 0.6);
+  background-color: #2c5ae9;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px) translateX(-50%); }
+  to { opacity: 1; transform: translateY(0) translateX(-50%); }
+}
+
+@media (max-width: 768px) {
+  .navbar { flex-direction: column; gap: 1rem; padding: 1rem; width: 90%; }
+  .title { font-size: 3.5rem; }
+  .quote { font-size: 1.2rem; }
+}
