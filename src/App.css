@@ -1,30 +1,28 @@
 :root {
-  --darkest-blue: #00072D;
-  --dark-blue: #051650;
-  --mid-blue: #0A2472;
-  --bright-blue: #123499;
-  --accent-blue: #1A43BF;
+  --background-black: #000000;
   --text-primary: #ffffff;
   --text-secondary: #a0aec0;
-  --highlight-green: #39d353;
+  --highlight-green: #7CFF67;
+  --border-color: #30363d;
+  --card-background: #0d1117;
 }
 
 body {
-  background-color: var(--darkest-blue);
+  background-color: var(--background-black);
   color: var(--text-primary);
   margin: 0;
   font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
-  overflow-x: hidden; /* Add this as a safeguard */
+  overflow-x: hidden;
 }
 
+/* --- Hero Section --- */
 .landing-page-hero {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  /* --- CHANGE HERE --- */
-  width: 100%; /* Changed from 100vw */
+  width: 100%;
   position: relative;
   overflow: hidden;
   text-align: center;
@@ -40,6 +38,7 @@ body {
   z-index: 0;
 }
 
+/* --- Navbar --- */
 .navbar {
   position: fixed;
   top: 20px;
@@ -52,10 +51,10 @@ body {
   max-width: 900px;
   justify-content: space-between;
   padding: 1rem 3.5rem;
-  background: rgba(10, 36, 114, 0.15);
+  background: rgba(20, 20, 20, 0.2);
   backdrop-filter: blur(10px);
   border-radius: 50px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-color);
 }
 
 .nav-logo {
@@ -90,7 +89,7 @@ body {
   top: 150%;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(5, 22, 80, 0.8);
+  background: rgba(20, 20, 20, 0.8);
   backdrop-filter: blur(15px);
   border-radius: 12px;
   padding: 1rem;
@@ -98,7 +97,7 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: 0.5rem 1.5rem;
   width: 350px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-color);
   animation: fadeIn 0.3s ease-in-out;
 }
 
@@ -109,7 +108,7 @@ body {
 }
 
 .dropdown-menu a:hover {
-  background-color: rgba(26, 67, 191, 0.5);
+  background-color: rgba(124, 255, 103, 0.1);
 }
 
 .view-all-link {
@@ -120,7 +119,7 @@ body {
     color: var(--text-primary);
 }
 
-
+/* --- Hero Content --- */
 .content {
   position: relative;
   z-index: 1;
@@ -153,7 +152,7 @@ body {
 }
 
 .quote-encrypted {
-  color: var(--bright-blue);
+  color: var(--highlight-green);
 }
 
 .view-categories-btn {
@@ -169,97 +168,97 @@ body {
 }
 
 .view-categories-btn:hover {
-  background-color: var(--accent-blue);
-  border-color: var(--accent-blue);
+  background-color: var(--highlight-green);
+  border-color: var(--highlight-green);
+  color: var(--background-black);
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(26, 67, 191, 0.6);
+  box-shadow: 0 8px 25px rgba(124, 255, 103, 0.3);
 }
 
+/* --- Main Content Sections (Bento, CTA) --- */
 .main-content {
-    /* --- CHANGE HERE --- */
-    width: 100%; /* Changed from 100vw */
+    width: 100%;
     padding: 5rem 2rem;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 8rem;
-    background-color: var(--darkest-blue);
+    background-color: var(--background-black);
 }
 
-.cta-section {
+/* --- CTA Card --- */
+.cta-card {
     width: 100%;
     max-width: 1100px;
     padding: 4rem;
-    border-radius: 24px;
-    border: 1px solid #30363d;
-    background: linear-gradient(120deg, var(--highlight-green) -20%, var(--accent-blue) 120%);
-    position: relative;
-    overflow: hidden;
-}
-
-.cta-section::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"><g fill-opacity="0.2"><circle fill="%23000" cx="100" cy="100" r="200"/><circle fill="%23000" cx="400" cy="400" r="100"/><circle fill="%23fff" cx="800" cy="200" r="50"/></g><filter id="f"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23f)"/></svg>');
-    opacity: 0.05;
-    pointer-events: none;
+    box-sizing: border-box;
+    background-color: var(--card-background) !important;
 }
 
 .cta-content {
     position: relative;
     z-index: 1;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
 }
 
 .cta-title {
     font-size: 3rem;
     font-weight: 700;
-    margin: 0 0 1rem 0;
+    margin: 0;
+    color: var(--highlight-green);
 }
 
 .cta-subtitle {
     font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.8);
-    margin: 0 0 2rem 0;
+    color: var(--text-secondary);
+    margin: 0 0 1rem 0;
 }
 
-.cta-button {
-    background-color: var(--text-primary);
-    color: var(--darkest-blue);
-    border: none;
-    padding: 1rem 2.5rem;
-    border-radius: 50px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.cta-button:hover {
-    transform: scale(1.05);
-}
-
+/* --- Footer --- */
 .footer {
-    /* --- CHANGE HERE --- */
-    width: 100%; /* Changed from 100vw */
+    width: 100%;
     text-align: center;
     padding: 2rem;
     color: var(--text-secondary);
-    border-top: 1px solid #30363d;
-    background-color: var(--darkest-blue);
-    box-sizing: border-box; /* Add this to include padding in width calculation */
+    border-top: 1px solid var(--border-color);
+    background-color: var(--background-black);
+    box-sizing: border-box;
 }
 
+/* --- Keyframe Animations --- */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-10px) translateX(-50%); }
   to { opacity: 1; transform: translateY(0) translateX(-50%); }
 }
 
+/* --- Placeholder for Tools Page --- */
+.tools-page-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 8rem 2rem 2rem;
+  text-align: center;
+}
+
+.tools-page-placeholder h1 {
+  font-size: 3rem;
+  color: var(--highlight-green);
+}
+
+.tools-page-placeholder p {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+/* --- Media Queries for Responsiveness --- */
 @media (max-width: 768px) {
   .navbar { flex-direction: column; gap: 1rem; padding: 1rem; width: 90%; }
   .title { font-size: 3.5rem; }

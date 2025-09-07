@@ -1,28 +1,25 @@
-/* --- Styles for the Magic Bento Grid --- */
-
+/* ... (keep existing .bento-grid and .bento-card styles) ... */
 .bento-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Default to 3 columns */
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   width: 100%;
-  max-width: 1100px; /* Control max width */
-  margin: 0 auto; /* Center the grid */
+  max-width: 1100px;
+  margin: 0 auto;
 }
-
 .bento-card {
-  background-color: #0d1117;
-  border: 1px solid #30363d;
+  background-color: var(--card-background);
+  border: 1px solid var(--border-color);
   border-radius: 16px;
   padding: 2.5rem;
-  position: relative; /* Needed for particles */
-  overflow: hidden; /* Hide overflowing particles */
+  position: relative;
+  overflow: hidden;
   transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-  will-change: transform; /* Performance hint for browser */
+  will-change: transform;
 }
-
 .bento-card:hover {
-  border-color: var(--accent-blue);
-  box-shadow: 0 8px 30px rgba(26, 67, 191, 0.3);
+  border-color: var(--highlight-green);
+  box-shadow: 0 8px 30px rgba(124, 255, 103, 0.2);
 }
 
 .bento-card-content {
@@ -30,42 +27,53 @@
   z-index: 2;
 }
 
-.bento-title {
+/* --- NEW AND UPDATED STYLES START HERE --- */
+
+/* Renamed .bento-title to this for cards without a count */
+.bento-title-full {
   font-size: 2.5rem;
   font-weight: 700;
   color: var(--highlight-green);
   margin: 0 0 0.5rem 0;
 }
 
+/* New style for the large count-up number */
+.bento-title-count {
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--highlight-green);
+  margin: 0;
+  line-height: 1;
+}
+
+/* New style for the text below the count-up number */
+.bento-subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0.25rem 0 0 0;
+    color: var(--text-primary);
+}
+
 .bento-description {
   font-size: 1.25rem;
   color: var(--text-secondary);
-  margin-top: 0.5rem;
+  margin-top: 1rem; /* Added margin for spacing */
 }
 
-/* --- Column Span Helpers --- */
+/* ... (keep existing media queries and span helpers) ... */
 .col-span-1 { grid-column: span 1 / span 1; }
 .col-span-2 { grid-column: span 2 / span 2; }
 .col-span-3 { grid-column: span 3 / span 3; }
-
-/* --- Responsive Layout for the Grid --- */
 @media (max-width: 1024px) {
-  .bento-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .bento-grid { grid-template-columns: repeat(2, 1fr); }
   .md\:col-span-2 { grid-column: span 2 / span 2; }
   .md\:col-span-3 { grid-column: span 2 / span 2; }
 }
-
 @media (max-width: 768px) {
-  .bento-grid {
-    grid-template-columns: 1fr;
-  }
-   /* Reset all spans for mobile */
+  .bento-grid { grid-template-columns: 1fr; }
   .col-span-1, .col-span-2, .col-span-3,
-  .md\:col-span-2, .md\:col-span-3 {
-    grid-column: span 1 / span 1;
-  }
-  .bento-title { font-size: 2rem; }
+  .md\:col-span-2, .md\:col-span-3 { grid-column: span 1 / span 1; }
+  .bento-title-count { font-size: 3rem; }
+  .bento-subtitle { font-size: 1.25rem; }
   .bento-description { font-size: 1rem; }
 }
