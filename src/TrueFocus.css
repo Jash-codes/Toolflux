@@ -1,0 +1,69 @@
+.true-focus-container {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.true-focus-word {
+  font-weight: 800; /* 800 is a good equivalent for 'font-black' */
+  font-size: 4rem;
+  transition-property: filter, color;
+  color: var(--text-primary);
+}
+
+.true-focus-box {
+  top: 0;
+  left: 0;
+  box-sizing: content-box;
+  position: absolute;
+  border: none;
+  pointer-events: none;
+}
+
+.corner {
+  position: absolute;
+  filter: drop-shadow(0 0 4px var(--border-color, #fff));
+  border: 3px solid var(--border-color, #fff);
+  border-radius: 3px;
+  width: 1rem; /* 16px */
+  height: 1rem; /* 16px */
+  transition: none;
+}
+
+.corner.top-left {
+  top: -10px;
+  left: -10px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.corner.top-right {
+  top: -10px;
+  right: -10px;
+  border-bottom: none;
+  border-left: none;
+}
+
+.corner.bottom-left {
+  bottom: -10px;
+  left: -10px;
+  border-top: none;
+  border-right: none;
+}
+
+.corner.bottom-right {
+  right: -10px;
+  bottom: -10px;
+  border-top: none;
+  border-left: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .true-focus-word {
+        font-size: 3rem;
+    }
+}

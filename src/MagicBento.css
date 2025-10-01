@@ -1,0 +1,123 @@
+/* ... (keep existing .bento-grid and .bento-card styles) ... */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.bento-card {
+  background-color: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 0; /* Remove padding from card itself */
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
+}
+.bento-card:hover {
+  border-color: var(--highlight-green);
+  box-shadow: 0 8px 30px rgba(124, 255, 103, 0.2);
+}
+
+/* --- NEW STYLES START HERE --- */
+
+.bento-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+  height: 100%;
+  padding: 2.5rem; /* Apply padding to the link instead */
+  box-sizing: border-box;
+}
+
+.bento-card-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Pushes button to the bottom */
+  height: 100%;
+}
+
+.visit-tool-button {
+  margin-top: 1.5rem;
+  align-self: flex-start;
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.3s ease;
+  transform: translateX(0);
+}
+
+.bento-card:hover .visit-tool-button {
+  color: var(--highlight-green);
+  transform: translateX(5px);
+}
+
+/* --- End of New Styles --- */
+
+.bento-title-full {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--highlight-green);
+  margin: 0 0 0.5rem 0;
+}
+.bento-title-count {
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--highlight-green);
+  margin: 0;
+  line-height: 1;
+}
+.bento-subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0.25rem 0 0 0;
+    color: var(--text-primary);
+}
+.bento-description {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  margin-top: 1rem;
+}
+.bento-tool-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+.bento-tool-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+.bento-tool-price {
+    font-size: 0.9rem;
+    color: var(--background-black);
+    background-color: var(--highlight-green);
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-weight: 500;
+    flex-shrink: 0;
+}
+.col-span-1 { grid-column: span 1 / span 1; }
+.col-span-2 { grid-column: span 2 / span 2; }
+.col-span-3 { grid-column: span 3 / span 3; }
+@media (max-width: 1024px) {
+  .bento-grid { grid-template-columns: repeat(2, 1fr); }
+  .md\:col-span-2 { grid-column: span 2 / span 2; }
+  .md\:col-span-3 { grid-column: span 2 / span 2; }
+}
+@media (max-width: 768px) {
+  .bento-grid { grid-template-columns: 1fr; }
+  .col-span-1, .col-span-2, .col-span-3,
+  .md\:col-span-2, .md\:col-span-3 { grid-column: span 1 / span 1; }
+  .bento-title-count { font-size: 3rem; }
+  .bento-subtitle { font-size: 1.25rem; }
+  .bento-description { font-size: 1rem; }
+}
