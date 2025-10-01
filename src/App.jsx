@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Aurora from './Aurora.jsx';
+import LetterGlitch from './LetterGlitch.jsx';
 import SplitText from './SplitText.jsx';
 import DecryptedText from './DecryptedText.jsx';
 import MagicBento from './MagicBento.jsx';
@@ -15,13 +15,17 @@ const landingPageBentoData = [
   { title: 'Free & Open Source', description: 'Continuously growing and getting better for the community.', className: 'col-span-1 md:col-span-3' },
 ];
 
-// --- FIX: The duplicate definition was removed. This is the single, correct version. ---
 const LandingPage = ({ onNavigate }) => {
   return (
     <>
       <div className="landing-page-hero">
         <div className="background-container">
-          <Aurora colorStops={['#7CFF67', '#000000', '#7CFF67']} speed={1.5} blend={0.6} intensity={1.2} />
+          <LetterGlitch
+            glitchColors={['#0d1117', '#7CFF67']}
+            glitchSpeed={50}
+            smooth={true}
+            centerVignette={true}
+          />
         </div>
         <div className="content">
           <SplitText text="ToolFlux" className="title" splitType="chars" delay={80} duration={0.7} from={{ opacity: 0, y: 50, scale: 0.8 }} to={{ opacity: 1, y: 0, scale: 1 }}/>
@@ -43,17 +47,12 @@ const LandingPage = ({ onNavigate }) => {
   );
 };
 
-// ... (rest of the file is the same)
-
 function App() {
-  // This is a new comment to trigger deployment
   const [pageState, setPageState] = useState({ page: 'home', category: null });
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
-
-// ... (rest of the file is the same)
   
-  const categoriesForNav = [ 'AI Detection', 'Advertising', 'Audio', 'Automation', 'Chat', 'Coding', ];
+  const categoriesForNav = [ 'AI Detection', 'Advertising', 'Audio', 'Automation', 'Chat',  ];
   
   const handleNavigate = (newState) => {
     setPageState(newState);
@@ -111,4 +110,3 @@ function App() {
   );
 }
 export default App;
-
